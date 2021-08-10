@@ -1,6 +1,8 @@
 $(document).ready(function () {
-  var pcodeRegex = /^(\d{5}(-\d{4})?|\d[A-Z]\d ?[A-Z]\d[A-Z])$/,
-    phoneRegex = /^\(?\d{3}\)?[-]?\d{3}[\s.-]\d{4}$/;
+  var pcodeRegex = /^(\d{5}(-\d{4})?|\d[A-Z]\d ?[A-Z]\d[A-Z])$/;
+  var phoneRegex = /^\(?\d{3}\)?[-]?\d{3}[\s.-]\d{4}$/;
+  var emailRegex =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   let userInfo = JSON.parse(localStorage.getItem("userInfo")) || [];
   if (userInfo.length > 0) {
@@ -26,6 +28,10 @@ $(document).ready(function () {
       if (!phoneRegex.test($(".container .form input[name='phone']").val())) {
         flag = false;
         alert("Acceptable formats: 123-123-1234, or (123)123-1234");
+      }
+      if (!emailRegex.test($(".container .form input[name='email']").val())) {
+        flag = false;
+        alert("Email should be in format 'example@smail.com'");
       }
       if (flag) {
         var formData = $(".container .form").serializeArray();
