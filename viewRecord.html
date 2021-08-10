@@ -1,8 +1,117 @@
 <html>
   <head>
-    <title>SwagatSamal_PROG8170_A4</title>
+    <title>View Record</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      .view-container {
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 45px auto;
+        padding: 25px;
+        border: 1px solid yellowgreen;
+      }
+
+      .view-container h3 {
+        text-align: center;
+      }
+
+      .view-container .info {
+        margin: 50px 0;
+        width: 100%;
+      }
+
+      .view-container .info .label {
+        color: yellowgreen;
+        margin: 10px 0;
+      }
+
+      .view-container button {
+        padding: 10px 20px;
+        width: 25%;
+        border: 1px solid yellowgreen;
+        background-color: yellowgreen;
+        color: #fff;
+        cursor: pointer;
+      }
+      .boxed {
+        border: 1px solid yellowgreen;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    </style>
   </head>
   <body>
-    <div></div>
+    <header>
+      <ul class="menu">
+        <li><a href="./index.html">Register</a></li>
+        <li><a href="./search.html">Search</a></li>
+        <li><a class="active" href="./viewRecord.html">View Record</a></li>
+      </ul>
+    </header>
+    <div class="view-container">
+      <div class="boxed">
+        <h3>User Info</h3>
+      </div>
+      <div class="info">
+        <div class="data">
+          <div class="label">Contact Name:</div>
+          <div id="contact"></div>
+        </div>
+        <div class="data">
+          <div class="label">Address:</div>
+          <div id="address"></div>
+        </div>
+        <div class="data">
+          <div class="label">City:</div>
+          <div id="city"></div>
+        </div>
+        <div class="data">
+          <div class="label">Province:</div>
+          <div id="province"></div>
+        </div>
+        <div class="data">
+          <div class="label">Postal Code:</div>
+          <div id="pcode"></div>
+        </div>
+        <div class="data">
+          <div class="label">Phone Number:</div>
+          <div id="phone"></div>
+        </div>
+        <div class="data">
+          <div class="label">Email Address:</div>
+          <div id="email"></div>
+        </div>
+        <div class="data">
+          <div class="label">Notes:</div>
+          <div id="notes"></div>
+        </div>
+      </div>
+      <button id="delete">Delete data</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      let userInfo = JSON.parse(localStorage.getItem("userInfo")) || [];
+      let info = userInfo[userInfo.length - 1];
+      if (info) {
+        $("#contact").text(info.fname + " " + info.lname);
+        $("#address").text(info.address);
+        $("#city").text(info.city);
+        $("#province").text(info.province);
+        $("#pcode").text(info.pcode);
+        $("#phone").text(info.phone);
+        $("#email").text(info.email);
+        $("#notes").text(info.notes);
+      }
+
+      $("#delete").click(function () {
+        userInfo.pop();
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        alert("Record deleted!");
+        window.location.href = "./index.html";
+      });
+    </script>
   </body>
 </html>
