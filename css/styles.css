@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: #19191a;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: #454647;
+}
+
+header ul.menu {
+  list-style: none;
+  display: flex;
+}
+
+header ul.menu li {
+  padding: 5px 10px;
+}
+
+header ul.menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header ul.menu li a::after {
+  content: "";
+  position: relative;
+  display: block;
+  height: 1px;
+  width: 0;
+  border-radius: 16px;
+  background: #fff;
+  bottom: -3px;
+  left: 0;
+  z-index: 1;
+  transition: all 0.3s ease-out 0s;
+}
+
+header ul.menu li a.active::after {
+  width: 100%;
+}
+
+.dnone {
+  display: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+}
+
+.container h3,
+.container p {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form .form-element {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form .form-element label {
+  margin: 10px 0;
+}
+
+.form .form-element input,
+.form .form-element select {
+  padding: 7px;
+}
+
+.form #register {
+  padding: 10px 30px;
+  margin-top: 30px;
+  background-color: #bf2026;
+  color: #fff;
+  border: 1px solid #bf2026;
+}
