@@ -45,27 +45,30 @@
       if (userInfo.length > 0) {
         userInfo.forEach((item) => {
           $(".search-container").append(
-            "<div class='user-record'><div class='label'>Contact Name</div><div class='info'>" +
+            "<div class='user-record'><div class='label'>Contact Name:</div><div class='info'>" +
               item.fname +
               " " +
               item.lname +
-              "</div><div class='label'>Address</div><div class='info'>" +
+              "</div><div class='label'>Address:</div><div class='info'>" +
               item.address +
-              "</div><div class='label'>City</div><div class='info'>" +
+              "</div><div class='label'>City:</div><div class='info'>" +
               item.city +
-              "</div><div class='label'>Province</div><div class='info'>" +
+              "</div><div class='label'>Province:</div><div class='info'>" +
               item.province +
-              "</div><div class='label'>Postal Code</div><div class='info'>" +
+              "</div><div class='label'>Postal Code:</div><div class='info'>" +
               item.pcode +
-              "</div><div class='label'>Phone Number</div><div class='info'>" +
+              "</div><div class='label'>Phone Number:</div><div class='info'>" +
               item.phone +
-              "</div><div class='label'>Email Address</div><div class='info'>" +
+              "</div><div class='label'>Email Address:</div><div class='info'>" +
               item.email +
-              "</div><div class='label'>Notes</div><div class='info'>" +
+              "</div><div class='label'>Notes:</div><div class='info'>" +
               item.notes +
               "</div></div>"
           );
         });
+      } else {
+        alert("No Records Found");
+        window.location.href = "./index.html";
       }
     </script>
   </body>

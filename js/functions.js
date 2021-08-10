@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  var nameRegex = /^[a-zA-Z ]{2,30}$/;
   var pcodeRegex = /^(\d{5}(-\d{4})?|\d[A-Z]\d ?[A-Z]\d[A-Z])$/;
   var phoneRegex = /^\(?\d{3}\)?[-]?\d{3}[\s.-]\d{4}$/;
   var emailRegex =
@@ -32,6 +33,10 @@ $(document).ready(function () {
       if (!emailRegex.test($(".container .form input[name='email']").val())) {
         flag = false;
         alert("Email should be in format 'example@smail.com'");
+      }
+      if (!nameRegex.test($(".container .form input[name='fname']").val())) {
+        flag = false;
+        alert("Incorect name format");
       }
       if (flag) {
         var formData = $(".container .form").serializeArray();

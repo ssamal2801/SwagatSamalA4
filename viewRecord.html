@@ -104,13 +104,16 @@
         $("#phone").text(info.phone);
         $("#email").text(info.email);
         $("#notes").text(info.notes);
+      } else {
+        window.location.href = "./index.html";
+        alert("No Records Found");
       }
 
       $("#delete").click(function () {
         userInfo.pop();
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
-        alert("Record deleted!");
         window.location.href = "./index.html";
+        alert("Record deleted!");
       });
     </script>
   </body>
