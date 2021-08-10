@@ -28,7 +28,7 @@ header ul.menu li {
 }
 
 header ul.menu li a {
-  color: #fff;
+  color: yellowgreen;
   text-decoration: none;
 }
 
@@ -80,6 +80,7 @@ header ul.menu li a.active::after {
 
 .form .form-element label {
   margin: 10px 0;
+  color: yellowgreen;
 }
 
 .form .form-element input,
@@ -90,7 +91,15 @@ header ul.menu li a.active::after {
 .form #register {
   padding: 10px 30px;
   margin-top: 30px;
-  background-color: #bf2026;
+  background-color: yellowgreen;
   color: #fff;
-  border: 1px solid #bf2026;
+  border: 1px solid yellowgreen;
+}
+
+a.record {
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  padding: 30px;
 }

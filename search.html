@@ -1,8 +1,72 @@
 <html>
   <head>
-    <title>SwagatSamal_PROG8170_A4</title>
+    <title>Search</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      .search-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 30px;
+      }
+
+      .search-container .user-record {
+        width: 30%;
+        padding: 20px;
+        background-color: yellowgreen;
+      }
+
+      .search-container .user-record .label {
+        color: #000;
+        font-size: 14px;
+        margin: 5px 0;
+      }
+
+      .search-container .user-record .info {
+        font-size: 14px;
+      }
+
+      .search-container .user-record:not(:nth-child(3n)) {
+        margin-right: 5%;
+      }
+    </style>
   </head>
   <body>
-    <div></div>
+    <header>
+      <ul class="menu">
+        <li><a href="./index.html">Register</a></li>
+        <li><a class="active" href="./search.html">Search</a></li>
+      </ul>
+    </header>
+    <div class="search-container"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      let userInfo = JSON.parse(localStorage.getItem("userInfo")) || [];
+      if (userInfo.length > 0) {
+        userInfo.forEach((item) => {
+          $(".search-container").append(
+            "<div class='user-record'><div class='label'>Contact Name</div><div class='info'>" +
+              item.fname +
+              " " +
+              item.lname +
+              "</div><div class='label'>Address</div><div class='info'>" +
+              item.address +
+              "</div><div class='label'>City</div><div class='info'>" +
+              item.city +
+              "</div><div class='label'>Province</div><div class='info'>" +
+              item.province +
+              "</div><div class='label'>Postal Code</div><div class='info'>" +
+              item.pcode +
+              "</div><div class='label'>Phone Number</div><div class='info'>" +
+              item.phone +
+              "</div><div class='label'>Email Address</div><div class='info'>" +
+              item.email +
+              "</div><div class='label'>Notes</div><div class='info'>" +
+              item.notes +
+              "</div></div>"
+          );
+        });
+      }
+    </script>
   </body>
 </html>
